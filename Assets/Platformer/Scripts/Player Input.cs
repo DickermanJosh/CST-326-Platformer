@@ -38,7 +38,7 @@ public class PlayerInput : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y - 2f, 0f);
         }
     }
-    private bool touchingGround()
+    public bool touchingGround()
     {
         // cast a ray from the players feet and return true if it touches a block
         Ray ray = new Ray(transform.position, Vector3.down);
@@ -55,6 +55,9 @@ public class PlayerInput : MonoBehaviour
         // Cast a ray to the left and right of the player and return true of either of the rays comes into contact with a block
         Ray rayLeft = new Ray(transform.position, Vector3.left);
         Ray rayRight = new Ray(transform.position, Vector3.right);
+        Debug.DrawRay(transform.position,Vector3.right,Color.blue);
+        Debug.DrawRay(transform.position,Vector3.left,Color.red);
+
         RaycastHit hit;
         if (Physics.Raycast(rayLeft, out hit, 0.5f, ground)) return true;
         if (Physics.Raycast(rayRight, out hit, 0.5f, ground)) return true;
