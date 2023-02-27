@@ -9,7 +9,11 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject goalPrefab;
+    public GameObject waterPrefab;
+
     public Transform environmentRoot;
+
     // --------------------------------------------------------------------------
     void Start()
     {
@@ -57,19 +61,36 @@ public class LevelParser : MonoBehaviour
                 var letter = letters[column];
                 if (letter == 'x')
                 {
-                    Instantiate(rockPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform.SetParent(environmentRoot);
+                    Instantiate(rockPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
                 }
                 else if (letter == '?')
                 {
-                    Instantiate(questionBoxPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform.SetParent(environmentRoot);
+                    Instantiate(questionBoxPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
                 }
                 else if (letter == 'b')
                 {
-                    Instantiate(brickPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform.SetParent(environmentRoot);
+                    Instantiate(brickPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
                 }
+
                 if (letter == 's')
                 {
-                    Instantiate(stonePrefab, new Vector3(column, row, 0f), Quaternion.identity).transform.SetParent(environmentRoot);
+                    Instantiate(stonePrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
+                }
+
+                if (letter == 'g')
+                {
+                    Instantiate(goalPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
+                }
+
+                if (letter == 'w')
+                {
+                    Instantiate(waterPrefab, new Vector3(column, row, 0f), Quaternion.identity).transform
+                        .SetParent(environmentRoot);
                 }
                 // Todo - Instantiate a new GameObject that matches the type specified by letter
                 // Todo - Position the new GameObject at the appropriate location by using row and column
@@ -86,8 +107,9 @@ public class LevelParser : MonoBehaviour
     {
         foreach (Transform child in environmentRoot)
         {
-           Destroy(child.gameObject);
+            Destroy(child.gameObject);
         }
+
         LoadLevel();
     }
 }

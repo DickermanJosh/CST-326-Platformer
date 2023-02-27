@@ -11,11 +11,13 @@ public class QuestionMarkClock : MonoBehaviour
     private float yTiling;
 
     private float elapsedSeconds;
+
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.realtimeSinceStartup;
     }
+
     // Update is called once per frame
     void Update()
     {

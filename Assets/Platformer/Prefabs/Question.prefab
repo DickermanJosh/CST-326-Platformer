@@ -183,8 +183,8 @@ GameObject:
   - component: {fileID: 2574237044343014569}
   - component: {fileID: 1958155273635212950}
   - component: {fileID: 6049506351508975074}
-  m_Layer: 3
-  m_Name: Break Layer
+  m_Layer: 8
+  m_Name: Coin Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
